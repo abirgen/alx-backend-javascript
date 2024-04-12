@@ -1,1 +1,2 @@
-Promises and Asynchronous Methods.
+### 0x01. ES6 Promises
+

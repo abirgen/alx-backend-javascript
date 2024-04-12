@@ -7,12 +7,7 @@ export default class EVCar extends Car {
   }
 
   cloneCar() {
-    const clone = new Car();
-    Object.getOwnPropertyNames(this).forEach((key) => {
-      if (key !== 'cloneCar') {
-        clone[key] = this[key];
-      }
-    });
-    return clone;
+    const clone = super.cloneCar();
+    return new Car(clone._brand, clone._motor, clone._color);
   }
 }

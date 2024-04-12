@@ -1,5 +1,3 @@
-const CLONE_CAR = Symbol();
-
 export default class Car {
   constructor(brand, motor, color) {
     this._brand = brand;
@@ -8,12 +6,7 @@ export default class Car {
   }
 
   cloneCar() {
-    const clone = new Car();
-    Object.getOwnPropertyNames(this).forEach((key) => {
-      if (key !== CLONE_CAR) {
-        clone[key] = this[key];
-      }
-    });
+    const clone = Object.assign(Object.create(Object.getPrototypeOf(this)), this);
     return clone;
   }
 }
