@@ -1,41 +1,30 @@
-import Currency from './3-currency';
-
 export default class Pricing {
   constructor(amount, currency) {
-    this.amount = amount;
-    this.currency = currency;
+    this._amount = amount;
+    this._currency = currency;
   }
 
   get amount() {
     return this._amount;
   }
 
+  set amount(n) {
+    this._amount = n;
+  }
+
   get currency() {
     return this._currency;
   }
 
-  set amount(amount) {
-    if (typeof amount !== 'number') {
-      throw new Error('attribute number must be a number');
-    }
-    this._amount = amount;
-  }
-
-  set currency(currency) {
-    if (!(currency instanceof Currency)) {
-      throw new Error('currency must be  instance of object Currency');
-    }
-    this._currency = currency;
+  set currency(n) {
+    this._currency = n;
   }
 
   displayFullPrice() {
-    return `${this._amount} ${this._currency.displayFullCurrency()}`;
+    return `${this._amount} ${this._currency.name} (${this._currency.code})`;
   }
 
   static convertPrice(amount, conversionRate) {
-    if (typeof amount !== 'number' || typeof conversionRate !== 'number') {
-      throw new Error('Invalid input types');
-    }
-    return (amount * conversionRate);
+    return amount * conversionRate;
   }
 }

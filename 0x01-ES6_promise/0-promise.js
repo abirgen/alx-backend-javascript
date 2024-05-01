@@ -1,10 +1,4 @@
-function getResponseFromAPI() {
-  return Promise.resolve((resolve) => {
-    const response = {
-      status: 200,
-      data: 'example API response',
-    };
-    resolve(response);
-  });
+/* eslint-disable */
+export default function getResponseFromAPI() {
+  return (new Promise((resolve, reject) => {}));
 }
-export default getResponseFromAPI;
